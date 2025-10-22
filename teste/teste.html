@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificador de Nacionalidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Verificar Nacionalidade</h2>
+        <input type="text" id="nacionalidade" placeholder="Digite sua nacionalidade">
+        <br>
+        <button onclick="verificarNacionalidade()">Verificar</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function verificarNacionalidade() {
+            const input = document.getElementById("nacionalidade").value.toLowerCase().trim();
+            const resultado = document.getElementById("resultado");
+
+            if (input === "brasileiro" || input === "brasileira") {
+                resultado.textContent = "Você é brasileiro(a)!";
+                resultado.style.color = "green";
+            } else if (input === "") {
+                resultado.textContent = "Por favor, digite uma nacionalidade.";
+                resultado.style.color = "red";
+            } else {
+                resultado.textContent = "Você não é brasileiro(a).";
+                resultado.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
